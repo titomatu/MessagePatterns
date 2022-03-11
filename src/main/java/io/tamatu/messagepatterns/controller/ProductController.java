@@ -21,6 +21,8 @@ public class ProductController {
         producerTemplate.start();
         List<Product> products = producerTemplate.requestBody(
                 "direct:fetchProducts", category, List.class);
+        //producerTemplate uses a router to call the service method and produce
+        //a REST response
         producerTemplate.stop();
 
         return products;
