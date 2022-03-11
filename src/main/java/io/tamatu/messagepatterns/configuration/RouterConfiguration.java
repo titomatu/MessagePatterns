@@ -9,8 +9,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RouterConfiguration {
 
-    @Autowired
-    CamelContext camelContext;
+    private final CamelContext camelContext;
+
+    public RouterConfiguration(CamelContext camelContext) {
+        this.camelContext = camelContext;
+    }
 
     @Bean
     ProducerTemplate producerTemplate(){
